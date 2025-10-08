@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRQ | RRQ-SL Official Squad Site</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for social media/UI -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Font and Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827; /* Dark background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00FFFF; /* Electric Blue scrollbar */
+            border-radius: 4px;
+        }
+        
+        /* The main container to hold the content */
+        .content-container {
+            min-height: calc(100vh - 80px); /* Adjust based on footer height */
+        }
+    </style>
+    <script>
+        // Tailwind Configuration with Electric Blue Accent
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0f172a', /* Dark Blue/Charcoal */
+                        'secondary-dark': '#1e293b', /* Slightly lighter dark for cards */
+                        'accent-blue': '#00FFFF', /* Electric Blue */
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-primary-dark text-white min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <header class="bg-secondary-dark/80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-accent-blue/10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <!-- Squad Logo and Tag -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-auto rounded-full ring-2 ring-accent-blue" src="RRQ Logo.png" alt="RRQ-SL Logo" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0f172a/00ffff?text=RRQ';">
+                        <span class="ml-3 text-xl font-extrabold tracking-wider text-white">RRQ</span>
+                        <span class="text-accent-blue font-light tracking-widest ml-1">-SL</span>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <!-- Navigation Links -->
+                    <button id="home-nav" onclick="showView('home-view')" class="text-sm font-medium hover:text-accent-blue transition duration-200 p-2 rounded-lg nav-link active-link">HOME</button>
+                    <button id="roster-nav" onclick="showView('roster-view')" class="text-sm font-medium hover:text-accent-blue transition duration-200 p-2 rounded-lg nav-link">ROSTER</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow content-container">
+        
+        <!-- Home View -->
+        <section id="home-view" class="view-section">
+            <div class="relative min-h-[70vh] flex items-center justify-center text-center overflow-hidden">
+                <!-- Smoke/Electric Background Effect -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1920x1080/0f172a/00ffff?text=ELECTRIC+GRID'); filter: blur(4px);"></div>
+                
+                <div class="relative z-10 p-6 sm:p-12 rounded-xl bg-primary-dark/50 backdrop-blur-sm border border-accent-blue/20">
+                    <img class="h-32 w-auto mx-auto mb-6 rounded-full ring-4 ring-accent-blue/50" 
+                         src="RRQ Logo.png" 
+                         alt="RRQ-SL Wolf Logo" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/128x128/0f172a/00ffff?text=RRQ'; this.className = 'h-32 w-32 mx-auto mb-6 rounded-full ring-4 ring-accent-blue/50 p-4'">
+                    
+                    <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tighter text-white uppercase">
+                        <span class="text-accent-blue drop-shadow-[0_0_10px_rgba(0,255,255,0.7)]">RRQ</span> SQUAD
+                    </h1>
+                    <p class="mt-4 text-xl sm:text-2xl font-light text-gray-300">
+                        The Elite Roster of <span class="text-accent-blue">Mobile Legends: Bang Bang</span>
+                    </p>
+                    <button onclick="showView('roster-view')" class="mt-8 px-8 py-3 bg-accent-blue text-primary-dark font-bold text-lg rounded-full shadow-xl hover:bg-white hover:text-accent-blue transition duration-300 transform hover:scale-105">
+                        VIEW SQUAD ROSTER
+                    </button>
+                </div>
+            </div>
+
+            <!-- Intro Section -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">SHOWING OFF OUR POWER</h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    We are RRQ-SL. Focused on domination and versatility across all lanes. Our ranks speak for themselves—we are here to compete, showcase our skills, and build a legacy in the Land of Dawn.
+                </p>
+            </div>
+        </section>
+
+        <!-- Roster View (Rendered by JS) -->
+        <section id="roster-view" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h2 class="text-4xl font-extrabold text-white mb-10 text-center">
+                <span class="text-accent-blue">RRQ-SL</span> ELITE ROSTER
+            </h2>
+            <!-- Roster Grid will be populated here -->
+            <div id="roster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Player cards generated here -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-dark border-t border-accent-blue/20 mt-10">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
+            <div class="text-sm text-gray-400 mb-4 sm:mb-0">
+                &copy; 2024 RRQ-SL. All Rights Reserved. Mobile Legends Squad.
+            </div>
+            
+            <!-- Social Media Icons -->
+            <div class="flex space-x-6">
+                <a href="https://facebook.com/rrq-sl-test" target="_blank" class="text-gray-400 hover:text-accent-blue transition duration-300" aria-label="Facebook (Test Link)">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                </a>
+                <a href="https://instagram.com/rrq-sl-test" target="_blank" class="text-gray-400 hover:text-accent-blue transition duration-300" aria-label="Instagram (Test Link)">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="https://youtube.com/rrq-sl-test" target="_blank" class="text-gray-400 hover:text-accent-blue transition duration-300" aria-label="YouTube (Test Link)">
+                    <i data-lucide="youtube" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. SQUAD DATA ---
+        const TEAM_ROSTER = [
+            // Ranks: Epic (E), Legend (L). Using a simplified scale for icons.
+            { ign: "T Reigns", roles: ["Leader", "Jungle"], rank: "Epic II", rankTier: 3, notes: "Squad Leader", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            { ign: "Tesla Bolt", roles: ["Mid Lane", "Gold Lane", "Jungle"], rank: "Legend I", rankTier: 6, notes: "", img: "uploaded:image_d115f4.png-522ac7d3-f243-49ee-8fec-7d4427957703" },
+            { ign: "Felix Bird&29", roles: ["Mid Lane", "Gold Lane"], rank: "Legend I", rankTier: 6, notes: "", img: "uploaded:image_d115f4.png-522ac7d3-f243-49ee-8fec-7d4427957703" },
+            { ign: "Aj97", roles: ["Roam", "Mid Lane"], rank: "Legend V", rankTier: 4, notes: "", img: "uploaded:image_d115f4.png-522ac7d3-f243-49ee-8fec-7d4427957703" },
+            { ign: "ASHeN_¥", roles: ["Gold Lane"], rank: "Legend V", rankTier: 4, notes: "", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            { ign: "Lathiya", roles: ["Mid", "Gold"], rank: "Legend V", rankTier: 4, notes: "", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            { ign: "AROSHA", roles: ["All Role"], rank: "Legend IV", rankTier: 5, notes: "", img: "uploaded:image_d115f4.png-522ac7d3-f243-49ee-8fec-7d4427957703" },
+            { ign: "Pendragon", roles: ["EXP Lane", "Roam"], rank: "Epic II", rankTier: 3, notes: "", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            { ign: "Ziluu", roles: ["EXP Lane"], rank: "Epic III", rankTier: 2, notes: "", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            { ign: "RRQ_Nuwa", roles: ["Mid Lane"], rank: "Epic IV", rankTier: 1, notes: "", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            { ign: "h.manju", roles: ["Gold Lane", "Roam", "Mid"], rank: "Epic IV", rankTier: 1, notes: "", img: "uploaded:image_d115b7.png-1188cf5c-ed6a-4e07-b421-7997868623f7" },
+            // The user's profile is highlighted
+            { ign: "Mr.Ghost@488", roles: ["All Role"], rank: "Legend V", rankTier: 4, notes: "You (Owner)", highlight: true, img: "uploaded:image_d115f4.png-522ac7d3-f243-49ee-8fec-7d4427957703" }, 
+        ];
+
+        // --- 2. RANK ICON GENERATOR ---
+        // Generates a simple SVG icon based on rank tier for a premium look
+        function getRankIcon(tier) {
+            let color;
+            let shape;
+            let iconText;
+
+            // Simplified tiers: 1-3 Epic, 4-6 Legend
+            if (tier >= 4) { // Legend
+                color = 'text-yellow-400';
+                shape = 'M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z';
+                iconText = 'L';
+            } else { // Epic
+                color = 'text-purple-500';
+                shape = 'M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z';
+                iconText = 'E';
+            }
+
+            return `
+                <div class="relative w-8 h-8 rounded-full flex items-center justify-center bg-secondary-dark ring-2 ring-accent-blue/50 mr-2">
+                    <svg class="w-5 h-5 ${color} fill-current" viewBox="0 0 24 24">
+                        <path d="${shape}"></path>
+                    </svg>
+                    <span class="absolute text-xs font-black text-white" style="text-shadow: 0 0 4px rgba(0,0,0,0.8);">${iconText}</span>
+                </div>
+            `;
+        }
+
+        // --- 3. ROSTER CARD GENERATOR ---
+        function createPlayerCard(player) {
+            const highlightClass = player.highlight 
+                ? 'bg-accent-blue/20 ring-4 ring-accent-blue shadow-2xl shadow-accent-blue/30 transform hover:scale-[1.02]' 
+                : 'bg-secondary-dark ring-2 ring-gray-700 hover:ring-accent-blue/50';
+            
+            const playerImage = player.img || 'https://placehold.co/100x100/1e293b/FFFFFF?text=P';
+
+            return `
+                <div class="rounded-xl overflow-hidden p-5 transition duration-500 ${highlightClass}">
+                    <div class="flex flex-col items-center">
+                        <!-- Player Image/Avatar -->
+                        <img class="w-24 h-24 rounded-full object-cover border-4 border-accent-blue/50 mb-4" 
+                             src="${playerImage}" 
+                             alt="${player.ign} Avatar"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/1e293b/00FFFF?text=${player.ign.charAt(0)}';">
+
+                        <!-- IGN -->
+                        <h3 class="text-2xl font-extrabold text-white text-center tracking-wide mb-1">${player.ign}</h3>
+                        
+                        <!-- Notes/Tag -->
+                        ${player.notes ? `<p class="text-xs font-semibold uppercase text-accent-blue mb-3 tracking-widest">${player.notes}</p>` : ''}
+
+                        <!-- Rank -->
+                        <div class="flex items-center justify-center mb-4">
+                            ${getRankIcon(player.rankTier)}
+                            <span class="text-lg font-bold text-gray-300">${player.rank}</span>
+                        </div>
+
+                        <!-- Roles List -->
+                        <div class="flex flex-wrap justify-center gap-2 mt-2">
+                            ${player.roles.map(role => `
+                                <span class="px-3 py-1 text-xs font-medium bg-primary-dark rounded-full text-accent-blue border border-accent-blue/30">
+                                    ${role}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 4. VIEW LOGIC (Client-Side Routing) ---
+        function showView(viewId) {
+            // Hide all views
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the requested view
+            const activeView = document.getElementById(viewId);
+            if (activeView) {
+                activeView.classList.remove('hidden');
+                window.scrollTo(0, 0); // Scroll to top on view change
+            }
+
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-link', 'text-accent-blue');
+                link.classList.add('text-white/70');
+            });
+            const activeLink = document.getElementById(viewId.replace('-view', '-nav'));
+            if (activeLink) {
+                activeLink.classList.add('active-link', 'text-accent-blue');
+                activeLink.classList.remove('text-white/70');
+            }
+        }
+
+        // --- 5. INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render the Roster
+            const rosterGrid = document.getElementById('roster-grid');
+            if (rosterGrid) {
+                // Sort by rank tier descending (higher tier first)
+                TEAM_ROSTER.sort((a, b) => b.rankTier - a.rankTier);
+                
+                rosterGrid.innerHTML = TEAM_ROSTER.map(createPlayerCard).join('');
+            }
+
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Set initial view to Home
+            showView('home-view');
+        });
+    </script>
+</body>
+</html>
